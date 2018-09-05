@@ -1,13 +1,14 @@
 var axios = require('axios');
-let connectwise = {
+var base64 = require('base-64');
+module.exports = {
     data: {},
 
-    setConfig: function (company) {
-        let key = new Buffer(company.cw_company + "+" + company.public_key + ":" + company.private_key).toString('base64');
+    setConfig: (company) => {
+        let key = base64.encode(`${company.cw_company}+${company.cw_public_key}:${company.cw_private_key}`)
 
         this.data.config = {
             headers: {
-                'Authorization': 'Basic ' + key,
+                'Authorization': `Basic ${key}`,
                 'Content-Type': 'application/json'
             }
         };
@@ -16,16 +17,17 @@ let connectwise = {
         return "Config Set";
     },
     // Connectwise Call
-    getCall: function (api, conditions, orderby) {
+    getCall: (api, conditions, orderby) => {
 
         return axios.get('https://' + this.data.cw_url + '/v4_6_release/apis/3.0' + api + '?conditions=' + conditions + '&orderby=' + orderby, this.data.config)
             .then(function (response) {
+                //  console.log(response.data)
                 return response.data
             })
             .catch(error => error)
 
     },
-    postCall: function (api, data) {
+    postCall: (api, data) => {
 
         return axios.post('https://' + this.data.cw_url + '/v4_6_release/apis/3.0' + api, data, this.data.config)
             .then(function (response) {
@@ -34,8 +36,7 @@ let connectwise = {
             .catch(error => error)
 
     },
-    patchCall: function (context){
+    patchCall: () => {
         // To be continued. 
     }
 }
-module.exports = connectwise;
