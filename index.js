@@ -39,8 +39,13 @@ const connectwise = {
         return error
       })
   },
-  patchCall: () => {
-    // To be continued.
+  patchCall: (api, data) => {
+    return axios
+      .patch('https://' + this.data.cw_url + '/v4_6_release/apis/3.0' + api, data, this.data.config)
+      .then(function (response) {
+        return response.data;
+      })
+      .catch((error) => error);
   }
 }
 
