@@ -5,7 +5,9 @@
   "main": "connectwise.js",
   "repository": "github:adamhancock/connectwisenodejs",
   "scripts": {
-    "prepublish": "npm version patch"
+    "prepublish": "npm version patch",
+    "postpublish": "git push"
+
   },
   "author": "Adam Hancock",
   "license": "ISC",
