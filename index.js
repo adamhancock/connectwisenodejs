@@ -21,7 +21,6 @@ class cw {
   }
   // Connectwise Call
   getCall(api, conditions, orderby) {
-    console.log(process.env)
     return axios
       .get(
         'https://' +
