@@ -1,6 +1,6 @@
 {
   "name": "connectwisenodejs",
-  "version": "1.0.7",
+  "version": "1.0.8",
   "description": "Connectwise SDK for nodejs",
   "main": "connectwise.js",
   "scripts": {
