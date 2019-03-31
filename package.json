@@ -1,13 +1,12 @@
 {
   "name": "connectwisenodejs",
-  "version": "1.0.9",
+  "version": "1.0.10",
   "description": "Connectwise SDK for nodejs",
   "main": "connectwise.js",
   "repository": "github:adamhancock/connectwisenodejs",
   "scripts": {
     "prepublish": "npm version patch",
     "postpublish": "git push"
-
   },
   "author": "Adam Hancock",
   "license": "ISC",
