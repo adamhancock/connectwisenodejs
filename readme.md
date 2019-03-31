@@ -9,10 +9,17 @@
 
 cw_url is without https://. For example crm.company.com.
 
-## Include package
+## Include package and initiate
 
 ```
-const cw = require('connectwisenodejs')
+const connectwise = require('connectwisenodejs')
+let cw = new connectwise({
+  cw_url: process.env.cw_url,
+  cw_company: process.env.cw_company,
+  cw_public_key: process.env.cw_public_key,
+  cw_private_key: process.env.cw_private_key
+})
+
 ```
 
 ## Example - Fetching invoices

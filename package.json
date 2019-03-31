@@ -1,6 +1,6 @@
 {
   "name": "connectwisenodejs",
-  "version": "1.0.0",
+  "version": "1.0.2",
   "description": "",
   "main": "connectwise.js",
   "scripts": {
@@ -10,6 +10,7 @@
   "license": "ISC",
   "dependencies": {
     "axios": "^0.18.0",
-    "base-64": "^0.1.0"
+    "base-64": "^0.1.0",
+    "dotenv": "^7.0.0"
   }
 }

@@ -1,25 +1,39 @@
 var axios = require('axios')
 var base64 = require('base-64')
-// prettier-ignore
-const connectwise = {
-  data: {},
 
-  setConfig: (company) => {
-    let key = base64.encode(`${company.cw_company}+${company.cw_public_key}:${company.cw_private_key}`)
+class cw {
 
-    this.data.config = {
+  constructor(company) {
+    this.data = {}
+    let key = base64.encode(
+      `${company.cw_company}+${company.cw_public_key}:${company.cw_private_key}`
+    )
+
+    this.config = {
       headers: {
-        'Authorization': `Basic ${key}`,
+        Authorization: `Basic ${key}`,
         'Content-Type': 'application/json'
       }
     }
 
     this.data.cw_url = company.cw_url
     return 'Config Set'
-  },
+  }
   // Connectwise Call
-  getCall: (api, conditions, orderby) => {
-    return axios.get('https://' + this.data.cw_url + '/v4_6_release/apis/3.0' + api + '?conditions=' + conditions + '&orderby=' + orderby, this.data.config)
+  getCall(api, conditions, orderby) {
+    console.log(process.env)
+    return axios
+      .get(
+        'https://' +
+        this.data.cw_url +
+        '/v4_6_release/apis/3.0' +
+        api +
+        '?conditions=' +
+        conditions +
+        '&orderby=' +
+        orderby,
+        this.config
+      )
       .then(function (response) {
         return response.data
       })
@@ -28,9 +42,14 @@ const connectwise = {
 
         return error
       })
-  },
-  postCall: (api, data) => {
-    return axios.post('https://' + this.data.cw_url + '/v4_6_release/apis/3.0' + api, data, this.data.config)
+  }
+  postCall(api, data) {
+    return axios
+      .post(
+        'https://' + this.data.cw_url + '/v4_6_release/apis/3.0' + api,
+        data,
+        this.config
+      )
       .then(function (response) {
         return response.data
       })
@@ -38,23 +57,21 @@ const connectwise = {
         console.log(error)
         return error
       })
-  },
-  patchCall: (api, data) => {
+  }
+
+  patchCall(api, data) {
     return axios
-      .patch('https://' + this.data.cw_url + '/v4_6_release/apis/3.0' + api, data, this.data.config)
+      .patch(
+        'https://' + this.data.cw_url + '/v4_6_release/apis/3.0' + api,
+        data,
+        this.config
+      )
       .then(function (response) {
-        return response.data;
+        return response.data
       })
-      .catch((error) => error);
+      .catch(error => error)
   }
 }
 
-if (process.env.cw_url) {
-  connectwise.setConfig({
-    cw_url: process.env.cw_url,
-    cw_company: process.env.cw_company,
-    cw_public_key: process.env.cw_public_key,
-    cw_private_key: process.env.cw_private_key
-  })
-}
-module.exports = connectwise
+module.exports = cw
+if (process.env.cw_url) {}
