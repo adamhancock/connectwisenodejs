@@ -4,8 +4,7 @@
   "description": "",
   "main": "connectwise.js",
   "scripts": {
-    "prepublish": "npm version patch",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "prepublish": "npm version patch"
   },
   "author": "Adam Hancock",
   "license": "ISC",
