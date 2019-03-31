@@ -28,7 +28,7 @@ class cw {
         '/v4_6_release/apis/3.0' +
         api +
         '?conditions=' +
-        conditions +
+        conditions + '&pagesize=1000' +
         '&orderby=' +
         orderby,
         this.config
