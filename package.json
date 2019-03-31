@@ -1,7 +1,7 @@
 {
   "name": "connectwisenodejs",
   "version": "1.0.7",
-  "description": "",
+  "description": "Connectwise SDK for nodejs",
   "main": "connectwise.js",
   "scripts": {
     "prepublish": "npm version patch"
