@@ -14,6 +14,7 @@ cw_url is without https://. For example crm.company.com.
 ```
 const connectwise = require('connectwisenodejs')
 let cw = new connectwise({
+  clientid: <clientid>,
   cw_url: process.env.cw_url,
   cw_company: process.env.cw_company,
   cw_public_key: process.env.cw_public_key,
