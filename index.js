@@ -11,6 +11,7 @@ class cw {
 
     this.config = {
       headers: {
+        clientid: company.clientid,
         Authorization: `Basic ${key}`,
         'Content-Type': 'application/json'
       }
