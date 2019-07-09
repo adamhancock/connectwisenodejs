@@ -11,10 +11,13 @@ class cw {
 
     this.config = {
       headers: {
-        clientid: company.clientid,
         Authorization: `Basic ${key}`,
         'Content-Type': 'application/json'
       }
+    }
+
+    if(company.clientid){
+      this.config.headers.clientid = company.clientid
     }
 
     this.data.cw_url = company.cw_url
