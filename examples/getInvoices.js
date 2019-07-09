@@ -3,6 +3,7 @@ const connectwise = require('../index')
 console.log("Loaded dotenv")
 require('dotenv').config()
 let cw = new connectwise({
+  clientid: process.clientid,
   cw_url: process.env.cw_url,
   cw_company: process.env.cw_company,
   cw_public_key: process.env.cw_public_key,

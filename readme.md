@@ -6,8 +6,11 @@
 - cw_company=
 - cw_public_key=
 - cw_private_key=
+- clientid=
 
 cw_url is without https://. For example crm.company.com.
+
+You can register for a client id at https://developer.connectwise.com/ClientID
 
 ## Include package and initiate
 
