@@ -1,5 +1,8 @@
 # SDK for Connectwise Manage.
 
+https://www.npmjs.com/package/connectwisenodejs
+npm install connectwisenodejs
+
 ## Set environmental variables for the following:
 
 - cw_url=
