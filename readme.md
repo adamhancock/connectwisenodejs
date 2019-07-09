@@ -2,6 +2,8 @@
 
 https://www.npmjs.com/package/connectwisenodejs
 
+## Install using NPM
+
 npm install connectwisenodejs
 
 ## Set environmental variables for the following:
@@ -14,14 +16,14 @@ npm install connectwisenodejs
 
 cw_url is without https://. For example crm.company.com.
 
-You can register for a client id at https://developer.connectwise.com/ClientID
+clientid is optional. You can register for a client id at https://developer.connectwise.com/ClientID
 
 ## Include package and initiate
 
 ```
 const connectwise = require('connectwisenodejs')
 let cw = new connectwise({
-  clientid: <clientid>,
+  clientid: process.env.clientid,
   cw_url: process.env.cw_url,
   cw_company: process.env.cw_company,
   cw_public_key: process.env.cw_public_key,
