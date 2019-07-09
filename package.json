@@ -1,6 +1,6 @@
 {
   "name": "connectwisenodejs",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "description": "Connectwise SDK for nodejs",
   "main": "connectwise.js",
   "repository": "github:adamhancock/connectwisenodejs",
