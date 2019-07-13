@@ -4,7 +4,10 @@ var base64 = require('base-64')
 class cw {
 
   constructor(company) {
-    this.data = {}
+
+    this.data = {
+      cw_url: company.cw_url
+    }
     let key = base64.encode(
       `${company.cw_company}+${company.cw_public_key}:${company.cw_private_key}`
     )
@@ -16,11 +19,8 @@ class cw {
       }
     }
 
-    if(company.clientid){
-      this.config.headers.clientid = company.clientid
-    }
 
-    this.data.cw_url = company.cw_url
+
     return 'Config Set'
   }
   // Connectwise Call
